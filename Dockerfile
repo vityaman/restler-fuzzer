@@ -13,6 +13,6 @@ RUN python3 -m compileall -b /build/engine
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine as target
 
 RUN apk add --no-cache python3 py3-pip
-RUN pip3 install requests applicationinsights
+RUN pip3 install requests applicationinsights --break-system-packages
 
 COPY --from=builder /build /RESTler
